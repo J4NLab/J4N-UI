@@ -1,3 +1,8 @@
-import Index from "./src/index";
+import JanlabUIProvider from "@/theme/provider";
 
-export default Index;
+import Button from "./components/Button";
+
+export default {
+  JanlabUIProvider,
+  Button,
+};
