@@ -1,9 +1,6 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { colorList } from "./color";
-
-export const DoggyContext: any = createContext({
-  color: colorList,
-});
+import { DoggyContext } from "../context";
 
 const JanlabUIProvider = ({ customColor, children }: any) => {
   const [color, setColor] = useState(colorList);

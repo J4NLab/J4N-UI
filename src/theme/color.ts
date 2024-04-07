@@ -1,4 +1,6 @@
-export const colorList = {
+import { ColorList } from "@/types";
+
+export const colorList: ColorList = {
   error: {
     100: "#FFF1F0",
     200: "#FDCCC8",
