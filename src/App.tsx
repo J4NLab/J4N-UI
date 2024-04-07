@@ -1,5 +1,6 @@
 import Button from "./components/Button";
 import "./App.css";
+import { DoggyIcon } from "doggy_icon";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -28,6 +29,7 @@ function App() {
       >
         CLICK ME!
       </Button>
+      <DoggyIcon icon="search" />
     </>
   );
 }
