@@ -20,3 +20,14 @@ export type ColorLevels = {
 };
 
 export type ColorList = Record<ColorType, ColorLevels>;
+
+export type TVariant = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+/**
+ * solid: 粗
+ *
+ * regular: 正常
+ *
+ * thin: 细
+ */
+export type TSprites = "solid" | "regular" | "thin";
