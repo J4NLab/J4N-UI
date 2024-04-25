@@ -1,11 +1,14 @@
 import "./App.css";
+import { useState } from 'react';
 
-import Typography from "./components/Typography";
+import Dialog from './components/Dialog';
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Typography variant="h1" sprites="solid" color="error.300">123</Typography>
+      <Dialog isOpen={isOpen} onClose={()=>setIsOpen(!isOpen)} title="123" />
+      <button onClick={()=>setIsOpen(true)}>點擊展開</button>
     </>
   );
 }

@@ -6,6 +6,10 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
   ],
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh"],
@@ -15,5 +19,9 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "@typescript-eslint/no-explicit-any": ["off"],
+    'semi': ['error', 'always'],
+    'no-console': 'warn',
+    "import/prefer-default-export": "off",
+    "react-hooks/exhaustive-deps": "off",
   },
 };
