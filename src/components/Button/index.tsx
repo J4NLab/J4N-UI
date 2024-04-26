@@ -18,16 +18,18 @@ type Props = {
    */
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
+  onClick?: () => void;
 };
 
 const Button = ({
   text,
   children,
   // size,
-  variant,
+  variant = "contained",
   style,
   startIcon,
   endIcon,
+  onClick,
 }: Props) => {
   const containedStyle = variant === "contained" ? "bg-red-500" : "";
   /**
@@ -43,6 +45,7 @@ const Button = ({
       <button
         className={`flex items-center gap-[4px] px-[11px] border border-[colorList.infi.700] text-[14px] rounded-[4px] ${containedStyle}`}
         style={style}
+        onClick={onClick}
       >
         {startIcon}
         {children || text}

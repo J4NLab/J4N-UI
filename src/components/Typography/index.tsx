@@ -15,6 +15,7 @@ type Props = {
   variant?: TVariant;
   sprites?: TSprites;
   color?: string;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
 }
 
@@ -22,6 +23,7 @@ type Props = {
  * @param variant: h1, h2, h3, h4, h5, h6,
  * @param sprites: solid, regular, thin
  * @param color
+ * @param style
  * @param children
  * @returns
  */
@@ -29,6 +31,7 @@ const Typography = ({
   variant = 'h3',
   sprites = 'solid',
   color = '#000',
+  style,
   children,
 }: Props) => {
   // font-size
@@ -68,7 +71,7 @@ const Typography = ({
   return (
     <div
       className={`${variantStyle(variant)} ${spriteStyle(sprites)}`}
-      style={{color: `${colorFilter(color)}`}}
+      style={{color: `${colorFilter(color)}`, ...style}}
     >
       {children}
     </div>
