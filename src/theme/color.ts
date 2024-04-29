@@ -1,4 +1,4 @@
-import { ColorList } from "@/types";
+import { ColorList } from "../types";
 
 export const colorList: ColorList = {
   error: {

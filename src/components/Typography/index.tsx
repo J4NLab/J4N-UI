@@ -1,8 +1,9 @@
+import React from 'react';
 import { colorFilter } from '../../utils/function';
 import {
   TVariant,
-  TSprites
-} from "../../types";
+  TSprites,
+} from '../../types';
 
 /**
  * sprite: solid regular thin
@@ -36,7 +37,7 @@ const Typography = ({
 }: Props) => {
   // font-size
   const variantStyle = (v: TVariant = 'h3'): string => {
-    switch(v){
+    switch (v) {
       case 'h1':
         return 'text-[32px]';
       case 'h2':
@@ -56,7 +57,7 @@ const Typography = ({
 
   // font-weight
   const spriteStyle = (s: TSprites = 'regular') => {
-    switch(s){
+    switch (s) {
       case 'solid':
         return 'font-bold';
       case 'regular':
@@ -71,7 +72,7 @@ const Typography = ({
   return (
     <div
       className={`${variantStyle(variant)} ${spriteStyle(sprites)}`}
-      style={{color: `${colorFilter(color)}`, ...style}}
+      style={{ color: `${colorFilter(color)}`, ...style }}
     >
       {children}
     </div>

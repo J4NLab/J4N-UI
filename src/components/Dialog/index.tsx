@@ -69,8 +69,7 @@ const DialogTitle= ({
     onClose,
     status,
     children,
-}: TDialogTitle) => {
-    return (
+}: TDialogTitle) => (
         <div className="flex justify-between px-4 pt-4">
             <div className="flex items-center gap-[16px]">
                 {
@@ -92,7 +91,6 @@ const DialogTitle= ({
             </div>
         </div>
     );
-};
 
 /**
  * content
@@ -101,23 +99,18 @@ type TDialogContent = {
     children?: ReactNode;
 };
 
-const DialogContent = ({children}: TDialogContent) => {
-    return (
+const DialogContent = ({children}: TDialogContent) => (
         <div className="px-4 ml-[40px]">{children}</div>
     );
-};
 
 type TDialogActions = {
     children?: ReactNode;
 }
 
-const DialogActions = ({children}: TDialogActions) => {
-    return (
+const DialogActions = ({children}: TDialogActions) => (
         <div className="flex justify-end gap-[24px] p-4">
             {children}
         </div>
     );
-
-};
 
 export { Dialog, DialogTitle, DialogContent, DialogActions};
