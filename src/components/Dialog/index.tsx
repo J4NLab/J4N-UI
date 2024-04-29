@@ -1,6 +1,7 @@
 import { ReactNode, Children, isValidElement, cloneElement } from 'react';
 import crossImg from '../../assets/cross.svg';
 import Typography from '../Typography';
+import { ICON_MAP } from '../../utils';
 
 type TDialog = {
     isOpen: boolean;
@@ -29,7 +30,7 @@ const Dialog = ({
             <div
             className="
                 w-[400px]
-                h-[200px]
+                h-auto
                 bg-white
                 fixed
                 z-200
@@ -51,23 +52,34 @@ const Dialog = ({
 
 /**
  * title
+ *
+ * startIcon: custom icon
+ * status: 'correct' | 'info' | 'error' | 'warning'
  */
 type TDialogTitle = {
     title?: string;
     startIcon?: ReactNode;
     onClose?: () => void;
+    status?: 'correct' | 'info' | 'error' | 'warning';
     children?: ReactNode;
 };
 
 const DialogTitle= ({
     startIcon,
     onClose,
+    status,
     children,
 }: TDialogTitle) => {
     return (
         <div className="flex justify-between px-4 pt-4">
             <div className="flex items-center gap-[16px]">
-                {startIcon}
+                {
+                    status && (
+                        !startIcon
+                            ? <img src={ICON_MAP[status]} alt="" />
+                            : startIcon
+                    )
+                }
                 <Typography
                     style={{fontSize: '20px'}}
                     sprites="regular"
@@ -91,7 +103,7 @@ type TDialogContent = {
 
 const DialogContent = ({children}: TDialogContent) => {
     return (
-        <div className="px-4">{children}</div>
+        <div className="px-4 ml-[40px]">{children}</div>
     );
 };
 
@@ -101,7 +113,7 @@ type TDialogActions = {
 
 const DialogActions = ({children}: TDialogActions) => {
     return (
-        <div className="fixed right-0 bottom-0 flex justify-en gap-[24px] p-4">
+        <div className="flex justify-end gap-[24px] p-4">
             {children}
         </div>
     );

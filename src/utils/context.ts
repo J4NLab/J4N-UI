@@ -1,6 +1,5 @@
-import { useContext } from "react";
-import { DoggyContext } from "../context/index";
+import { useContext } from 'react';
+import { DoggyContext } from '../context/index';
 
-export const _colorContext = () => {
-    return  useContext(DoggyContext);
-}
+// eslint-disable-next-line no-underscore-dangle
+export const _colorContext = () => useContext(DoggyContext);

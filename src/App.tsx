@@ -11,8 +11,8 @@ function App() {
         isOpen={isOpen}
         onClose={()=>setIsOpen(!isOpen)}
       >
-        <DialogTitle title="123">我是標題</DialogTitle>
-        <DialogContent>我是內容</DialogContent>
+        <DialogTitle title="123" status="correct">我是標題</DialogTitle>
+        <DialogContent>Lorem ipsum dolor sit amet consectetur.</DialogContent>
         <DialogActions>
           <Button onClick={()=>setIsOpen(false)}>取消</Button>
           <Button>確認</Button>
