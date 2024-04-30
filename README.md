@@ -10,8 +10,6 @@ npm i janlab-ui
 
 ### Button
 
-props:
-
 ```js
 type Props = {
   text?: string;
@@ -26,31 +24,50 @@ type Props = {
 
 ### Dialog
 
-props:
-
 ```js
-
-type Props = {
+type TDialog = {
     isOpen: boolean;
     onClose: () => void;
-    okText?: string;
-    closeText?: string;
-    title?: string;
-    startIcon?: React.ReactNode;
-    content?: React.ReactNode;
+    children?: ReactNode;
 }
+```
 
+### DialogTitle
+
+```js
+type TDialogTitle = {
+    title?: string;
+    startIcon?: ReactNode;
+    onClose?: () => void;
+    status?: 'correct' | 'info' | 'error' | 'warning';
+    children?: ReactNode;
+};
+```
+
+### DialogContent
+
+```js
+type TDialogContent = {
+    children?: ReactNode;
+};
+```
+
+### DialogActions - with button group
+
+```js
+type TDialogActions = {
+    children?: ReactNode;
+}
 ```
 
 ### Typography
-
-props:
 
 ```js
 type Props = {
   variant?: TVariant;
   sprites?: TSprites;
   color?: string;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
 }
 ```
