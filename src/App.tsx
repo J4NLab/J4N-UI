@@ -5,6 +5,8 @@ import {
   Dialog, DialogTitle, DialogContent, DialogActions,
 } from './components/Dialog';
 import Pagination from './components/Pagination';
+import Radio from './components/Radio';
+import Checkbox from './components/Checkbox';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +26,8 @@ function App() {
 
       <button onClick={() => setIsOpen(true)}>點擊展開</button>
       <Pagination count={10} />
+      <Radio labelText='我就測試' value="female" />
+      <Checkbox labelText='我就測試' />
     </>
   );
 }
