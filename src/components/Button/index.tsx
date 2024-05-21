@@ -1,60 +1,71 @@
-import React, { useContext } from "react";
-import { DoggyContext } from "../../context/index";
+import React from "react";
+import { colorFilter } from "../../utils/function";
+import "./style.css";
 
 type Props = {
   text?: string;
+  textColor?: string;
   children?: React.ReactNode;
-  /**
-   * 按鈕本身的大小
-   */
-  // size?: "small" | "medium" | "large";
   variant?: "text" | "outlined" | "contained";
-  /**
-   * custom inline style
-   */
   style?: any;
-  /**
-   * icons for button
-   */
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-  onClick?: () => void;
+  onClick: () => void;
 };
 
 const Button = ({
   text,
+  textColor = "#fff",
   children,
-  // size,
   variant = "contained",
   style,
   startIcon,
   endIcon,
   onClick,
 }: Props) => {
-  const containedStyle = variant === "contained" ? "bg-red-500" : "";
-  /**
-   * 使用者傳遞過來的色號
-   * 取 Primary 當作預設色號
-   */
-  const _basicColor = useContext(DoggyContext);
+  const containedStyle = variant === "contained" ? "bg-[#019CB0]" : "";
 
-  console.log(_basicColor, "_basicColor");
+  // 獲取滑鼠點擊位置
+  const getClickPosition = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    return { x, y };
+  };
+
+  // 監聽點擊事件
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { x, y } = getClickPosition(e);
+    const rippleContainer = e.currentTarget.querySelector(
+      ".ripple-container"
+    ) as HTMLElement;
+    const ripple = document.createElement("div");
+    ripple.classList.add("ripple-effect");
+    ripple.style.top = `${y}px`;
+    ripple.style.left = `${x}px`;
+    rippleContainer.appendChild(ripple);
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  };
 
   return (
-    <>
-      <button
-        className={`flex items-center gap-[4px] px-[11px] border border-[colorList.infi.700] text-[14px] rounded-[4px] ${containedStyle}`}
-        style={style}
-        onClick={onClick}
-      >
-        {startIcon}
+    <button
+      className={`relative flex items-center gap-[4px] px-[11px] border border-[colorList.infi.700] text-[14px] rounded-[4px] ${containedStyle}`}
+      style={style}
+      onClick={(e) => {
+        onClick();
+        handleClick(e);
+      }}
+    >
+      {startIcon}
+      <div style={{ color: `${colorFilter(textColor)}` }}>
         {children || text}
-        {endIcon}
-      </button>
-    </>
+      </div>
+      {endIcon}
+      <div className="ripple-container absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"></div>
+    </button>
   );
 };
 
 export default Button;
-
-// color

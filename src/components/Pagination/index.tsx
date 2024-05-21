@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { StyledButton } from './style';
+import React, { useState, useEffect } from "react";
+import { StyledButton } from "./style";
 
 // icons
-import RightArrowIcon from '../../assets/rightArrowIcon.svg';
-import LeftArrowIcon from '../../assets/leftArrowIcon.svg';
+import RightArrowIcon from "../../assets/rightArrowIcon.svg";
+import LeftArrowIcon from "../../assets/leftArrowIcon.svg";
 
 // < number >
 
@@ -21,11 +21,9 @@ import LeftArrowIcon from '../../assets/leftArrowIcon.svg';
  */
 type Props = {
   count: number;
-}
+};
 
-const Pagination = ({
-  count,
-}: Props) => {
+const Pagination = ({ count }: Props) => {
   const [showItem, setShowItem] = useState({
     start: 1,
     end: 10,
@@ -50,20 +48,23 @@ const Pagination = ({
 
   return (
     <div className="flex">
-        <StyledButton onClick={handleAdd} disabled={current === 0}>
-            <img src={LeftArrowIcon} alt="left arrow" />
+      <StyledButton onClick={handleAdd} disabled={current === 0}>
+        <img src={LeftArrowIcon} alt="left arrow" />
+      </StyledButton>
+      {allPageState.map((item, index) => (
+        <StyledButton
+          onClick={() => setCurrent(index)}
+          current={index === current}
+        >
+          {item}
         </StyledButton>
-            {allPageState.map((item, index) => (
-                <StyledButton
-                    onClick={() => setCurrent(index)}
-                    current={index === current}
-                >
-                    {item}
-                </StyledButton>
-            ))}
-        <StyledButton onClick={handleSub} disabled={current === allPageState.length - 1}>
-            <img src={RightArrowIcon} alt="right arrow" />
-        </StyledButton>
+      ))}
+      <StyledButton
+        onClick={handleSub}
+        disabled={current === allPageState.length - 1}
+      >
+        <img src={RightArrowIcon} alt="right arrow" />
+      </StyledButton>
     </div>
   );
 };

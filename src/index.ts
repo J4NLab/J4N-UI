@@ -1,7 +1,12 @@
 import JanlabUIProvider from "../src/theme/provider";
 
 import Button from "./components/Button";
-import { Dialog, DialogTitle, DialogContent, DialogActions } from "./components/Dialog";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "./components/Dialog";
 import Typography from "./components/Typography";
 
 export default {
@@ -12,5 +17,5 @@ export default {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Typography
+  Typography,
 };
