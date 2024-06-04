@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { colorList } from "./color";
 import { DoggyContext } from "../context";
 
-const JanlabUIProvider = ({ customColor, children }: any) => {
+const JanUIProvider = ({ customColor, children }: any) => {
   const [color, setColor] = useState(colorList);
 
   useEffect(() => {
@@ -14,4 +14,4 @@ const JanlabUIProvider = ({ customColor, children }: any) => {
   );
 };
 
-export default JanlabUIProvider;
+export default JanUIProvider;

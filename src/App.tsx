@@ -8,13 +8,13 @@ import {
   DialogActions,
 } from "./components/Dialog";
 import Pagination from "./components/Pagination";
-import JanlabUIProvider from "./theme/provider";
+import JanUIProvider from "./theme/provider";
 import { colorList } from "./mocks/_colorList";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <JanlabUIProvider customColor={colorList}>
+    <JanUIProvider customColor={colorList}>
       <Dialog isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
         <DialogTitle title="123" status="correct">
           我是標題
@@ -31,7 +31,7 @@ function App() {
       <Button textColor="success.100" onClick={() => setIsOpen(false)}>
         取消
       </Button>
-    </JanlabUIProvider>
+    </JanUIProvider>
   );
 }
 

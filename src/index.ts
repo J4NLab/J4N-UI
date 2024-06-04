@@ -1,4 +1,4 @@
-import JanlabUIProvider from "./theme/provider";
+import JanUIProvider from "./theme/provider";
 
 import Button from "./components/Button";
 import {
@@ -10,7 +10,7 @@ import {
 import Typography from "./components/Typography";
 
 export default {
-  JanlabUIProvider,
+  JanUIProvider,
 
   Button,
   Dialog,

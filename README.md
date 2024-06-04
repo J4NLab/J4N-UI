@@ -9,9 +9,9 @@ npm i janlab-ui
 ### 客製化顏色
 
 ```js
-import JanlabUIProvider from "./theme/provider";
+import JanUIProvider from "./theme/provider";
 
-<JanlabUIProvider customColor={colorList}>{children}</JanlabUIProvider>;
+<JanUIProvider customColor={colorList}>{children}</JanUIProvider>;
 ```
 
 #### colorList 格式

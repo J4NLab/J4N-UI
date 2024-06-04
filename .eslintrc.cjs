@@ -5,12 +5,12 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
-    'airbnb-base',
-    'prettier'
+    "airbnb-base",
+    "prettier",
   ],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: "module",
   },
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
@@ -37,21 +37,24 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "@typescript-eslint/no-explicit-any": ["off"],
-    'semi': ['error', 'always'],
-    'no-console': 'warn',
+    semi: ["error", "always"],
+    "no-console": "warn",
     "import/prefer-default-export": "off",
     "react-hooks/exhaustive-deps": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
       {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-   ],
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
     "react/jsx-wrap-multilines": 0,
     "jsx-a11y/anchor-is-valid": 0,
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "warn",
+    "@typescript-eslint/no-unused-vars": "error",
   },
 };
