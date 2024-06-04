@@ -1,5 +1,9 @@
 import React from "react";
+
 import { colorFilter } from "../../utils/function";
+// import { _colorContext } from "../../utils/context";
+// import { colorList } from "../../theme/color";
+
 import "./style.css";
 
 type Props = {
@@ -24,6 +28,7 @@ const Button = ({
   onClick,
 }: Props) => {
   const containedStyle = variant === "contained" ? "bg-[#019CB0]" : "";
+  // const colorLists = _colorContext() ? (_colorContext() as any) : colorList;
 
   // 獲取滑鼠點擊位置
   const getClickPosition = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -51,7 +56,7 @@ const Button = ({
 
   return (
     <button
-      className={`relative flex items-center gap-[4px] px-[11px] border border-[colorList.infi.700] text-[14px] rounded-[4px] ${containedStyle}`}
+      className={`relative flex items-center gap-[4px] px-[11px] text-[14px] rounded-[4px] ${containedStyle}`}
       style={style}
       onClick={(e) => {
         onClick();

@@ -10,7 +10,7 @@ const JanlabUIProvider = ({ customColor, children }: any) => {
   }, [customColor]);
 
   return (
-    <DoggyContext.Provider value={color}>{children}</DoggyContext.Provider>
+    <DoggyContext.Provider value={{ color }}>{children}</DoggyContext.Provider>
   );
 };
 

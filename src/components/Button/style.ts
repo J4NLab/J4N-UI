@@ -19,6 +19,3 @@ export const Button = styled.button`
     color: ${({ theme }) => theme.color.danger};
   }
 `;
-
-// 點擊要有水波紋
-// 須提供各個行為的 rgba 值

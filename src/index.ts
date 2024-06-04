@@ -1,4 +1,4 @@
-import JanlabUIProvider from "../src/theme/provider";
+import JanlabUIProvider from "./theme/provider";
 
 import Button from "./components/Button";
 import {
