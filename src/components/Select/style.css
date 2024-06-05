@@ -1,29 +1,7 @@
-.custom-select-container {
-  display: inline-block;
-  min-width: 250px;
-  text-align: center;
-  position: relative;
-  cursor: pointer;
-}
-
 .selected-text {
-  background-color: #47eded;
+  background-color: #fff;
   padding: 6px 20px;
   border-bottom: 1px solid #d0d0d0;
-}
-
-.selected-text::after {
-  content: "";
-  position: absolute;
-  right: 10px;
-  top: 16px;
-  border: 7px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-
-.selected-text.active::after {
-  top: 8px;
-  border-color: transparent transparent #fff transparent;
 }
 
 ul {
@@ -35,20 +13,21 @@ ul {
 .select-options {
   position: absolute;
   width: 100%;
+  border: 1px solid#d0d0d0;
+
+  border-top: none;
+  border-bottom: none;
 }
 
 li {
   list-style-type: none;
   padding: 6px 20px;
-  background: #47eded;
-  border-bottom: 1px solid #37b0b0;
+  background: #fff;
+  border-bottom: 1px solid #d0d0d0;
   cursor: pointer;
 }
 
 li:hover {
-  background-color: #32a6a6;
-  color: #ffffff;
+  background-color: #fff;
+  color: #000;
 }
-
-/* 正常情況下的點擊跟未點擊 */
-/* disabled */

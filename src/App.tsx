@@ -13,21 +13,23 @@ import { colorList } from "./mocks/_colorList";
 import Select from "./components/Select";
 
 const countryList = [
-  { id: 1, name: "Australia" },
-  { id: 2, name: "Brazil" },
-  { id: 3, name: "China" },
-  { id: 4, name: "Denmark" },
-  { id: 5, name: "Egypt" },
-  { id: 6, name: "Finland" },
-  { id: 7, name: "Ghana" },
-  { id: 8, name: "Hungary" },
-  { id: 9, name: "India" },
-  { id: 10, name: "Japan" },
+  { key: 1, value: "Australia" },
+  { key: 2, value: "Brazil" },
+  { key: 3, value: "China" },
+  { key: 4, value: "Denmark" },
+  { key: 5, value: "Egypt" },
+  { key: 6, value: "Finland" },
+  { key: 7, value: "Ghana" },
+  { key: 8, value: "Hungary" },
+  { key: 9, value: "India" },
+  { key: 10, value: "Japan" },
 ];
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [optionValue, setOptionValue] = useState("");
+
+  console.log(optionValue, "optionValue");
   return (
     <JanUIProvider customColor={colorList}>
       <Dialog isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
@@ -47,12 +49,17 @@ function App() {
         取消
       </Button>
 
-      <Select
-        label="預設文字"
-        options={countryList}
-        value={optionValue}
-        onChange={() => {}}
-      />
+      <div style={{ margin: "10px" }}>
+        <Select
+          label="預設文字"
+          options={countryList}
+          value={optionValue}
+          onChange={(e) => {
+            setOptionValue(e);
+          }}
+          // disabled
+        />
+      </div>
     </JanUIProvider>
   );
 }
