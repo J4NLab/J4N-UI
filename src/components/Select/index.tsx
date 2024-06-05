@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useBoolean } from "react-use-ez";
 
 import downArrow from "../../assets/downArrow.svg";
-import "./style.css";
+import { colorFilter } from "../../utils/function";
 
 type Props = {
   label: string;
@@ -10,6 +10,10 @@ type Props = {
   value: any;
   onChange: (value: any) => void;
   disabled?: boolean;
+  sx?: {
+    bgColor: string;
+    color: string;
+  };
 };
 
 /**
@@ -22,8 +26,15 @@ const Select = ({
   value,
   onChange,
   disabled = false,
+  sx,
 }: Props) => {
   const { value: isShowOptions, setFalse, toggle } = useBoolean(false);
+  const { bgColor, color } = sx || {};
+
+  const customStyle = {
+    backgroundColor: bgColor ? colorFilter(bgColor) : "",
+    color: color ? colorFilter(color) : "",
+  };
 
   const handleClickContainer = () => {
     if (disabled) return;
@@ -37,13 +48,8 @@ const Select = ({
     setFalse();
   };
 
-  const handleClickOutside = (e: any) => {
-    if (
-      !e.target.classList.contains("custom-select-option") &&
-      !e.target.classList.contains("selected-text")
-    ) {
-      setFalse();
-    }
+  const handleClickOutside = () => {
+    setFalse();
   };
 
   useEffect(() => {
@@ -75,6 +81,10 @@ const Select = ({
           ...(isShowOptions && {
             border: "1px solid #019CB0",
           }),
+          ...((customStyle.backgroundColor || customStyle.color) && {
+            backgroundColor: customStyle.backgroundColor,
+            color: customStyle.color,
+          }),
         }}
         onClick={handleClickContainer}
       >
@@ -83,13 +93,39 @@ const Select = ({
       </div>
 
       {isShowOptions && (
-        <ul className="select-options">
+        <ul
+          className="
+          m-0
+          p-0
+          text-center
+          absolute
+          w-full
+          border
+          border-[#d0d0d0]
+          border-t-0
+          border-b-0"
+        >
           {options.map((option) => (
             <li
-              className="custom-select-option"
+              className="
+                list-none
+                px-5
+                py-1.5
+              bg-white
+                border-b
+              border-[#d0d0d0]
+                cursor-pointer
+              hover:bg-white
+              hover:text-black"
               data-name={option.value}
               key={option.key}
               onClick={handleClickOption}
+              style={{
+                ...(customStyle.backgroundColor && {
+                  backgroundColor: customStyle.backgroundColor,
+                }),
+                ...(customStyle.color && { color: customStyle.color }),
+              }}
             >
               {option.value}
             </li>

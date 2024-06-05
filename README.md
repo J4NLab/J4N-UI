@@ -89,3 +89,22 @@ type Props = {
   children?: React.ReactNode;
 }
 ```
+
+### Select
+
+props:
+
+```js
+type Props = {
+  label: string;
+  options: Array<{ key: number; value: string }>;
+  value: any;
+  onChange: (value: any) => void;
+  disabled?: boolean;
+  sx?: {
+    bgColor: string;
+    color: string;
+  };
+};
+
+```
