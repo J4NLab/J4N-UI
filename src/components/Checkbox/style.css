@@ -1,0 +1,89 @@
+.checkbox-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  cursor: pointer;
+  user-select: none;
+}
+.checkbox-and-name {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.checkbox-container .checkbox-name {
+  margin-left: 8px;
+  height: 24px;
+}
+
+.checkbox-description {
+  margin-left: 24px;
+}
+
+.checkbox-container input {
+  display: none;
+}
+
+.checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 13px; /* Adjust as needed */
+  width: 13px; /* Adjust as needed */
+  background-color: #fff;
+  border: 1px solid #848484;
+  border-radius: 2px;
+}
+
+/* Unchecked - Default */
+.checkbox-container input:not(:checked) ~ .checkmark {
+  background-color: #fff;
+  border: 1px solid #848484;
+}
+
+/* Unchecked - Hover */
+.checkbox-container:hover input:not(:checked) ~ .checkmark {
+  background-color: #fff;
+  border: 1px solid #626262;
+}
+
+/* Unchecked - Disabled */
+.checkbox-container input:not(:checked):disabled ~ .checkmark {
+  background-color: #ddd;
+  border: 1px solid #ccc;
+}
+
+/* Checked - Default */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #019cb0;
+  border: 1px solid #019cb0;
+}
+
+/* Checked - Hover */
+.checkbox-container:hover input:checked ~ .checkmark {
+  background-color: #097984;
+  border: 1px solid #097984;
+}
+
+/* Checked - Disabled */
+.checkbox-container input:checked:disabled ~ .checkmark {
+  background-color: #b8b8b8;
+}
+
+.checkmark:after {
+  content: "";
+  display: none;
+  width: 10px;
+  height: 10px;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  background-image: url("../../assets/checkmark.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

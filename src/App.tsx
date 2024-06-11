@@ -9,6 +9,7 @@ import {
 } from "./components/Dialog";
 import Pagination from "./components/Pagination";
 import JanUIProvider from "./theme/provider";
+import Checkbox from "./components/Checkbox";
 import { colorList } from "./mocks/_colorList";
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
       <Button textColor="success.100" onClick={() => setIsOpen(false)}>
         取消
       </Button>
+      <Checkbox name="Checkbox" description="Description" disabled={false} />
+      <Checkbox name="Checkbox" description="Description" disabled={true} />
+      <Checkbox name="Checkbox" disabled={false} />
     </JanUIProvider>
   );
 }
