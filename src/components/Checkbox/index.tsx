@@ -3,13 +3,13 @@ import "./style.css";
 import Typography from "../Typography";
 
 type CheckboxProps = {
-  name: string;
+  name?: string;
   description?: string;
   disabled?: boolean;
 };
 
 const Checkbox = ({
-  name,
+  name = "",
   description = "",
   disabled = false,
 }: CheckboxProps) => {
@@ -28,14 +28,16 @@ const Checkbox = ({
           />
           <span className={`checkmark ${disabled ? "disabled" : ""}`}></span>
         </label>
-        <span className="checkbox-name">
-          <Typography
-            style={{ fontSize: "14px", color: disabled ? "#ccc" : "" }}
-            sprites="regular"
-          >
-            {name}
-          </Typography>
-        </span>
+        {name ? (
+          <span className="checkbox-name">
+            <Typography
+              style={{ fontSize: "14px", color: disabled ? "#ccc" : "" }}
+              sprites="regular"
+            >
+              {name}
+            </Typography>
+          </span>
+        ) : null}
       </div>
       {description ? (
         <p className="checkbox-description">

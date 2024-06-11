@@ -35,6 +35,9 @@ function App() {
       <Checkbox name="Checkbox" description="Description" disabled={false} />
       <Checkbox name="Checkbox" description="Description" disabled={true} />
       <Checkbox name="Checkbox" disabled={false} />
+      <Checkbox name="Checkbox" disabled={true} />
+      <Checkbox />
+      <Checkbox disabled={true} />
     </JanUIProvider>
   );
 }
