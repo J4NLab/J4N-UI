@@ -14,8 +14,6 @@ const Checkbox = ({
   disabled = false,
 }: CheckboxProps) => {
   const [checked, setChecked] = useState(false);
-  console.log("checked", checked);
-
   return (
     <div className="checkbox-container">
       <div className="checkbox-and-name">
