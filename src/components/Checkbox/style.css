@@ -28,8 +28,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 13px; /* Adjust as needed */
-  width: 13px; /* Adjust as needed */
+  height: 13px;
+  width: 13px;
   background-color: #fff;
   border: 1px solid #848484;
   border-radius: 2px;
