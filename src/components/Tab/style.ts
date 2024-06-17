@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 export const TabContainer = styled.div<{ justifyContent: string }>`
   display: flex;
   justify-content: ${({ justifyContent }) => justifyContent};
-  background-color: #000;
+  background-color: transparent;
 `;
 
 export const TabButton = styled.button<{ active?: boolean; shape?: 'capsule' | 'rectangle' }>`
@@ -19,11 +19,12 @@ export const TabButton = styled.button<{ active?: boolean; shape?: 'capsule' | '
   justify-content: center;
   padding: 16px;
   white-space: nowrap;
+  gap: 8px;
 
   ${props => {
     let borderBottom = 'none';
     if (props.shape === 'rectangle') {
-      borderBottom = props.active ? '2px solid #019CB0' : '2px solid #C8C8C8';
+      borderBottom = props.active ? '3px solid #019CB0' : '2px solid #C8C8C8';
     }
     return css`
       border-bottom: ${borderBottom};
@@ -76,7 +77,6 @@ export const NotificationBadge = styled.span<{ active?: boolean }>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin-left: 8px;
   width: 20px;
   height: 20px;
   background-color: ${props => props.active ? '#EAFCFF' : '#C8C8C8'};

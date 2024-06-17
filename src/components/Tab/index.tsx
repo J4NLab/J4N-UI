@@ -12,7 +12,7 @@ interface TabProps {
   alignment?: 'left' | 'center' | 'right';
 }
 
-const Tab: React.FC<TabProps> = ({ tabs, shape = 'rectangle', alignment = 'left' }) => {
+const Tab = ({ tabs, shape = 'rectangle', alignment = 'left' }: TabProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -42,7 +42,7 @@ const Tab: React.FC<TabProps> = ({ tabs, shape = 'rectangle', alignment = 'left'
             onClick={() => handleTabClick(index)}
             shape={shape}
           >
-            {tab.icon && <span style={{ marginRight: '8px' }}>{tab.icon}</span>}
+            {tab.icon && <span>{tab.icon}</span>}
             {tab.label}
             {tab.notification !== undefined && (
               <NotificationBadge active={index === activeIndex}>
