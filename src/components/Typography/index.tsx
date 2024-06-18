@@ -69,7 +69,10 @@ const Typography = ({
   return (
     <div
       className={`${variantStyle(variant)} ${spriteStyle(sprites)}`}
-      style={{ color: `${colorFilter(color)}`, ...style }}
+      style={{
+        color: `${colorFilter(color)}`,
+        ...style,
+      }}
     >
       {children}
     </div>

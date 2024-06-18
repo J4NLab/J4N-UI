@@ -10,9 +10,18 @@ import {
 import Pagination from "./components/Pagination";
 import JanUIProvider from "./theme/provider";
 import { colorList } from "./mocks/_colorList";
+import Tab from "./components/Tab";
+import Checkbox from "./components/Checkbox";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const [checked, setChecked] = useState(false);
+  const onCheckboxChange = (checked: boolean) => {
+    console.log(checked);
+    setChecked(!checked);
+    console.log(checked);
+  };
   return (
     <JanUIProvider customColor={colorList}>
       <Dialog isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
@@ -31,6 +40,42 @@ function App() {
       <Button textColor="success.100" onClick={() => setIsOpen(false)}>
         取消
       </Button>
+      <Tab
+        alignment="left"
+        shape="rectangle"
+        tabs={[
+          {
+            label: "Tab Name 1",
+            content: <div>Content of Tab 1</div>,
+            // icon: <FaBeer />,
+            notification: 3,
+          },
+          {
+            label: "Tab Name 2",
+            content: <div>Content of Tab 2</div>,
+            // icon: <FaHome />,
+            notification: 0,
+          },
+          {
+            label: "Tab Name 3",
+            content: <div>Content of Tab 3</div>,
+            // icon: <FaBeer />,
+            notification: 1001,
+          },
+        ]}
+      />
+      <Checkbox
+        label="Checkbox 1"
+        description="Description of Checkbox 1"
+        disabled={true}
+      />
+      <Checkbox
+        label="Checkbox 1"
+        description="Description of Checkbox 1"
+        disabled={false}
+        checked={checked}
+        onChange={() => onCheckboxChange(checked)}
+      />
     </JanUIProvider>
   );
 }
