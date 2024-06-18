@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import { FaBeer } from "react-icons/fa";
 import Breadcrumb from "./components/Breadcrumb";
 import Button from "./components/Button";
 import {
@@ -15,7 +16,6 @@ import Checkbox from "./components/Checkbox";
 import Select from "./components/Select";
 import Tab from "./components/Tab";
 import TextField from "./components/TextField";
-import { FaBeer } from "react-icons/fa";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,15 +38,15 @@ function App() {
   ];
   const [checked, setChecked] = useState(false);
   const [optionValue, setOptionValue] = useState("");
-  const [textValue, setTextValue] = useState('');
-  const [textError, setTextError] = useState('');
+  const [textValue, setTextValue] = useState("");
+  const [textError, setTextError] = useState("");
 
   const handleChange = (newValue: string) => {
     setTextValue(newValue);
     if (newValue.length > 8) {
-      setTextError('超過 10 個字');
+      setTextError("超過 10 個字");
     } else {
-      setTextError('');
+      setTextError("");
     }
   };
 
@@ -77,7 +77,7 @@ function App() {
         <DialogContent>Lorem ipsum dolor sit amet consectetur.</DialogContent>
         <DialogActions>
           <Button onClick={() => setIsOpen(false)}>取消</Button>
-          <Button onClick={() => { }}>確認</Button>
+          <Button onClick={() => {}}>確認</Button>
         </DialogActions>
       </Dialog>
 
@@ -110,11 +110,11 @@ function App() {
           onChange={(e) => {
             setOptionValue(e);
           }}
-        // sx={{
-        //   bgColor: "red",
-        //   color: "yellow",
-        // }}
-        // disabled
+          // sx={{
+          //   bgColor: "red",
+          //   color: "yellow",
+          // }}
+          // disabled
         />
       </div>
       <Tab
@@ -122,23 +122,23 @@ function App() {
         shape="rectangle"
         tabs={[
           {
-            label: 'Tab Name 1',
+            label: "Tab Name 1",
             content: <div>Content of Tab 1</div>,
             // icon: <FaBeer />,
             notification: 3,
           },
           {
-            label: 'Tab Name 2',
+            label: "Tab Name 2",
             content: <div>Content of Tab 2</div>,
             // icon: <FaHome />,
             notification: 0,
           },
           {
-            label: 'Tab Name 3',
+            label: "Tab Name 3",
             content: <div>Content of Tab 3</div>,
             // icon: <FaBeer />,
             notification: 1001,
-          }
+          },
         ]}
       />
       <div style={{ margin: "10px" }}>
@@ -147,7 +147,7 @@ function App() {
           value={textValue}
           onChange={handleChange}
           error={textError}
-          placeholder='請輸入文字'
+          placeholder="請輸入文字"
           // icon={<FaBeer />}
           width="40%"
           // disabled
