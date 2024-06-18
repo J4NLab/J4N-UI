@@ -10,7 +10,6 @@ import {
 import Pagination from "./components/Pagination";
 import JanUIProvider from "./theme/provider";
 import { colorList } from "./mocks/_colorList";
-import Tab from "./components/Tab";
 import Checkbox from "./components/Checkbox";
 
 function App() {
@@ -40,41 +39,20 @@ function App() {
       <Button textColor="success.100" onClick={() => setIsOpen(false)}>
         取消
       </Button>
-      <Tab
-        alignment="left"
-        shape="rectangle"
-        tabs={[
-          {
-            label: "Tab Name 1",
-            content: <div>Content of Tab 1</div>,
-            // icon: <FaBeer />,
-            notification: 3,
-          },
-          {
-            label: "Tab Name 2",
-            content: <div>Content of Tab 2</div>,
-            // icon: <FaHome />,
-            notification: 0,
-          },
-          {
-            label: "Tab Name 3",
-            content: <div>Content of Tab 3</div>,
-            // icon: <FaBeer />,
-            notification: 1001,
-          },
-        ]}
-      />
-      <Checkbox
-        label="Checkbox 1"
-        description="Description of Checkbox 1"
-        disabled={true}
-      />
+      <Checkbox />
       <Checkbox
         label="Checkbox 1"
         description="Description of Checkbox 1"
         disabled={false}
         checked={checked}
         onChange={() => onCheckboxChange(checked)}
+      />
+      <Checkbox label="Checkbox 2" />
+      <Checkbox label="Checkbox 3" description="Description of Checkbox 3" />
+      <Checkbox
+        label="Checkbox 1"
+        description="Description of Checkbox 1"
+        disabled={true}
       />
     </JanUIProvider>
   );
