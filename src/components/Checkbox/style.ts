@@ -43,7 +43,7 @@ const commonStyles = css<{ disabled?: boolean }>`
     `}
 `;
 
-export const Checkmark = styled.div<{ disabled?: boolean }>`
+export const CheckMark = styled.div<{ disabled?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
