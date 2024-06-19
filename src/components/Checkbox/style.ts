@@ -9,15 +9,16 @@ export const CheckboxContainer = styled.div`
   cursor: pointer;
 `;
 
-export const CheckboxAndLabel = styled.div`
+export const CheckboxWrapper = styled.label`
   display: flex;
   align-items: center;
   justify-content: left;
+  cursor: pointer;
 `;
 
 export const CheckboxLabel = styled.div`
   margin-left: 8px;
-  height: 24px;
+  display: flex;
 `;
 
 export const CheckboxDescription = styled.div`
@@ -27,39 +28,42 @@ export const CheckboxDescription = styled.div`
 export const CheckboxInput = styled.input`
   display: none;
 `;
+
+const commonStyles = css<{ disabled?: boolean }>`
+  background-color: ${({ disabled }) => (disabled ? "#e7e7e7" : "#fff")};
+  border: ${({ disabled }) =>
+    disabled ? "1px solid #b8b8b8" : "1px solid #848484"};
+
+  ${({ disabled }) =>
+    !disabled &&
+    css`
+      &:hover {
+        border-color: #626262;
+      }
+    `}
+`;
+
 export const Checkmark = styled.div<{ disabled?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
   height: 13px;
   width: 13px;
-  background-color: ${(props) => (props.disabled ? "#e7e7e7" : "#fff")};
-  border: ${(props) =>
-    props.disabled ? "1px solid #b8b8b8" : "1px solid #848484"};
   border-radius: 2px;
-
-  ${CheckboxInput}:not(:checked) + & {
-    background-color: ${(props) => (props.disabled ? "#e7e7e7" : "#fff")};
-    border: ${(props) =>
-      props.disabled ? "1px solid #b8b8b8" : "1px solid #848484"};
-  }
-
-  ${CheckboxContainer}:hover ${CheckboxInput}:not(:checked) + & {
-    background-color: ${(props) => (props.disabled ? "#e7e7e7" : "#fff")};
-    border: ${(props) =>
-      props.disabled ? "1px solid #b8b8b8" : "1px solid #626262"};
-  }
+  ${commonStyles}
 
   ${CheckboxInput}:checked + & {
-    background-color: ${(props) => (props.disabled ? "#e7e7e7" : "#019cb0")};
-    border: ${(props) =>
-      props.disabled ? "1px solid #b8b8b8" : "1px solid #019cb0"};
-  }
+    background-color: ${({ disabled }) => (disabled ? "#e7e7e7" : "#019cb0")};
+    border-color: ${({ disabled }) => (disabled ? "#b8b8b8" : "#019cb0")};
 
-  ${CheckboxContainer}:hover ${CheckboxInput}:checked + & {
-    background-color: ${(props) => (props.disabled ? "#e7e7e7" : "#097984")};
-    border: ${(props) =>
-      props.disabled ? "1px solid #b8b8b8" : "1px solid #097984"};
+    ${({ disabled }) =>
+      !disabled &&
+      css`
+        &:hover {
+          background-color: #097984;
+          border-color: #097984;
+        }
+      `}
   }
 
   &:after {
@@ -67,16 +71,13 @@ export const Checkmark = styled.div<{ disabled?: boolean }>`
     display: none;
     width: 10px;
     height: 10px;
-  }
-
-  ${CheckboxInput}:checked + &:after {
-    display: ${(props) => (props.disabled ? "none" : "block")};
-  }
-
-  &:after {
     background-image: url(${checkmark});
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+  }
+
+  ${CheckboxInput}:checked + &:after {
+    display: ${({ disabled }) => (disabled ? "none" : "block")};
   }
 `;

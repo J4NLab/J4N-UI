@@ -17,9 +17,7 @@ function App() {
 
   const [checked, setChecked] = useState(false);
   const onCheckboxChange = (checked: boolean) => {
-    console.log(checked);
     setChecked(!checked);
-    console.log(checked);
   };
   return (
     <JanUIProvider customColor={colorList}>
