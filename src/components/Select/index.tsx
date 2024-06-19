@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useBoolean } from "react-use-ez";
 
 import downArrow from "../../assets/downArrow.svg";
@@ -30,6 +30,7 @@ const Select = ({
 }: Props) => {
   const { value: isShowOptions, setFalse, toggle } = useBoolean(false);
   const { bgColor, color } = sx || {};
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const customStyle = {
     backgroundColor: bgColor ? colorFilter(bgColor) : "",
@@ -48,27 +49,34 @@ const Select = ({
     setFalse();
   };
 
-  const handleClickOutside = () => {
-    setFalse();
+  const handleClickOutside = (e: MouseEvent) => {
+    if (
+      containerRef.current &&
+      !containerRef.current.contains(e.target as Node)
+    ) {
+      setFalse();
+    }
   };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
-    <div className="inline-block min-w-[250px] text-center relative cursor-pointer">
+    <div
+      ref={containerRef}
+      className="inline-block min-w-[250px] text-center relative cursor-pointer"
+    >
       <div
         className={`
         flex
         justify-between
-        bg-[#fff]
+      bg-[#fff]
         px-[8px]
         py-1.5
         border
-        border-[#d0d0d0]
+      border-[#d0d0d0]
         rounded-[4px]
         relative
         `}
