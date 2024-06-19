@@ -1,0 +1,42 @@
+.sideBar {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: fit-content;
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+  opacity: 0;
+}
+.sideBar.show {
+  animation: flyIn 1s forwards;
+}
+.sideBar.hide {
+  animation: flyOut 1s forwards;
+}
+@keyframes flyIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(-100%);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flyOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
