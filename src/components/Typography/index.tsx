@@ -1,4 +1,5 @@
 import React from "react";
+import { colorList } from "../../theme/color";
 import { colorFilter } from "../../utils/function";
 import { TVariant, TSprites } from "../../types";
 
@@ -15,6 +16,7 @@ type Props = {
   color?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  disabled?: boolean;
 };
 
 /**
@@ -31,6 +33,7 @@ const Typography = ({
   color = "#000",
   style,
   children,
+  disabled = false,
 }: Props) => {
   // font-size
   const variantStyle = (v: TVariant = "h3"): string => {
@@ -70,7 +73,7 @@ const Typography = ({
     <div
       className={`${variantStyle(variant)} ${spriteStyle(sprites)}`}
       style={{
-        color: `${colorFilter(color)}`,
+        color: disabled ? colorList.gray[600] : `${colorFilter(color)}`,
         ...style,
       }}
     >

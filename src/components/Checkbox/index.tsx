@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Typography from "../Typography";
+import React from "react";
 import { useBoolean } from "react-use-ez";
+import Typography from "../Typography";
 import {
   CheckboxContainer,
-  CheckboxAndLabel,
+  CheckboxWrapper,
   CheckboxLabel,
   CheckboxDescription,
   CheckboxInput,
@@ -25,41 +25,33 @@ const Checkbox = ({
   onChange,
   disabled = false,
 }: CheckboxProps) => {
-  const { value, setTrue, setFalse, toggle } = useBoolean(checked);
+  const { value, toggle } = useBoolean(checked);
   return (
     <CheckboxContainer>
-      <label>
-        <CheckboxAndLabel>
-          <CheckboxInput
-            type="checkbox"
-            checked={checked || value}
-            onChange={() => {
-              onChange && onChange();
-              toggle();
-            }}
-            disabled={disabled}
-          />
-          <Checkmark disabled={disabled} />
-          {label && (
-            <CheckboxLabel>
-              <Typography
-                variant="h5"
-                color={disabled ? "#b8b8b8" : ""}
-                sprites="regular"
-              >
-                {label}
-              </Typography>
-            </CheckboxLabel>
-          )}
-        </CheckboxAndLabel>
-      </label>
+      <CheckboxWrapper>
+        <CheckboxInput
+          type="checkbox"
+          checked={checked || value}
+          onChange={() => {
+            if (onChange) {
+              onChange();
+            }
+            toggle();
+          }}
+          disabled={disabled}
+        />
+        <Checkmark disabled={disabled} />
+        {label && (
+          <CheckboxLabel>
+            <Typography variant="h5" disabled={disabled} sprites="regular">
+              {label}
+            </Typography>
+          </CheckboxLabel>
+        )}
+      </CheckboxWrapper>
       {description && (
         <CheckboxDescription>
-          <Typography
-            variant="h5"
-            color={disabled ? "#b8b8b8" : ""}
-            sprites="regular"
-          >
+          <Typography variant="h5" disabled={disabled} sprites="regular">
             {description}
           </Typography>
         </CheckboxDescription>
