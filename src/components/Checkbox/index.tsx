@@ -7,7 +7,7 @@ import {
   CheckboxLabel,
   CheckboxDescription,
   CheckboxInput,
-  Checkmark,
+  CheckMark,
 } from "./style";
 
 type CheckboxProps = {
@@ -40,7 +40,7 @@ const Checkbox = ({
           }}
           disabled={disabled}
         />
-        <Checkmark disabled={disabled} />
+        <CheckMark disabled={disabled} />
         {label && (
           <CheckboxLabel>
             <Typography variant="h5" disabled={disabled} sprites="regular">
