@@ -1,11 +1,16 @@
 import React, { ReactNode } from "react";
 import "./style.css";
+import { StyledSideBar } from "./style";
 
 type Props = {
   isOpen: boolean;
   children?: ReactNode;
 };
 const SideBar = ({ isOpen, children }: Props) => (
-  <div className={`sideBar ${isOpen ? "show" : "hide"}`}>{children}</div>
+  <div>
+    <StyledSideBar className={`${isOpen ? "show" : "hide"}`}>
+      {children}
+    </StyledSideBar>
+  </div>
 );
 export default SideBar;
