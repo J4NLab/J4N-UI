@@ -34,6 +34,8 @@ function App() {
     },
   ];
   const [checked, setChecked] = useState(false);
+  const [optionValue, setOptionValue] = useState("");
+
   const onCheckboxChange = (checked: boolean) => {
     setChecked(!checked);
   };
@@ -51,9 +53,6 @@ function App() {
     { key: 10, value: "Japan" },
   ];
 
-  const [optionValue, setOptionValue] = useState("");
-
-  console.log(optionValue, "optionValue");
   return (
     <JanUIProvider customColor={colorList}>
       <Breadcrumb crumbs={crumb} />
