@@ -11,6 +11,8 @@ import {
 import Pagination from "./components/Pagination";
 import JanUIProvider from "./theme/provider";
 import { colorList } from "./mocks/_colorList";
+import Checkbox from "./components/Checkbox";
+import Select from "./components/Select";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,6 +73,37 @@ function App() {
       <Button textColor="success.100" onClick={() => setIsOpen(false)}>
         取消
       </Button>
+      <Checkbox />
+      <Checkbox
+        label="Checkbox 1"
+        description="Description of Checkbox 1"
+        disabled={false}
+        checked={checked}
+        onChange={() => onCheckboxChange(checked)}
+      />
+      <Checkbox label="Checkbox 2" />
+      <Checkbox label="Checkbox 3" description="Description of Checkbox 3" />
+      <Checkbox
+        label="Checkbox 1"
+        description="Description of Checkbox 1"
+        disabled={true}
+      />
+
+      <div style={{ margin: "10px" }}>
+        <Select
+          label="預設文字"
+          options={countryList}
+          value={optionValue}
+          onChange={(e) => {
+            setOptionValue(e);
+          }}
+          // sx={{
+          //   bgColor: "red",
+          //   color: "yellow",
+          // }}
+          // disabled
+        />
+      </div>
     </JanUIProvider>
   );
 }
