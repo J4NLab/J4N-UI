@@ -1,11 +1,5 @@
 import React, { ReactNode } from "react";
-import {
-  BreadcrumbWrapper,
-  CrumbIconLeft,
-  CrumbIconRight,
-  CrumbItem,
-  CrumbLabel,
-} from "./style";
+import { BreadcrumbWrapper, CrumbItem, CrumbLabel } from "./style";
 
 /**
  * crumbs: 所有麵包屑
@@ -24,15 +18,11 @@ const Breadcrumb = ({ crumbs }: Props) => (
   <BreadcrumbWrapper>
     {crumbs.map((crumb, index) => (
       <CrumbItem key={index} onClick={crumb.onClick}>
-        {crumb.iconPosition === "left" && crumb.icon && (
-          <CrumbIconLeft>{crumb.icon}</CrumbIconLeft>
-        )}
+        {crumb.iconPosition === "left" && crumb.icon}
         <CrumbLabel className={`${index < crumbs.length - 1 ? "" : "active"}`}>
           {crumb.label}
         </CrumbLabel>
-        {crumb.iconPosition === "right" && crumb.icon && (
-          <CrumbIconRight>{crumb.icon}</CrumbIconRight>
-        )}
+        {crumb.iconPosition === "right" && crumb.icon}
         {index < crumbs.length - 1 && <CrumbLabel>/</CrumbLabel>}
       </CrumbItem>
     ))}

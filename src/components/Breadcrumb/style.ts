@@ -6,21 +6,11 @@ export const BreadcrumbWrapper = styled.div`
   padding: 10px;
   border-radius: 4px;
 `;
-
 export const CrumbItem = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
 `;
-
-export const CrumbIconLeft = styled.div`
-  margin-right: 5px;
-`;
-
-export const CrumbIconRight = styled.div`
-  margin-left: 5px;
-`;
-
 export const CrumbLabel = styled.span`
   font-family: "Noto Sans TC";
   font-weight: 400;
