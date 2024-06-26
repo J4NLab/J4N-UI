@@ -31,6 +31,27 @@ function App() {
       onClick: () => console.log("Settings clicked"),
     },
   ];
+  const [checked, setChecked] = useState(false);
+  const onCheckboxChange = (checked: boolean) => {
+    setChecked(!checked);
+  };
+
+  const countryList = [
+    { key: 1, value: "Australia" },
+    { key: 2, value: "Brazil" },
+    { key: 3, value: "China" },
+    { key: 4, value: "Denmark" },
+    { key: 5, value: "Egypt" },
+    { key: 6, value: "Finland" },
+    { key: 7, value: "Ghana" },
+    { key: 8, value: "Hungary" },
+    { key: 9, value: "India" },
+    { key: 10, value: "Japan" },
+  ];
+
+  const [optionValue, setOptionValue] = useState("");
+
+  console.log(optionValue, "optionValue");
   return (
     <JanUIProvider customColor={colorList}>
       <Breadcrumb crumbs={crumb} />
