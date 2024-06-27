@@ -1,4 +1,5 @@
 export enum ColorType {
+  primary = "primary",
   error = "error",
   warning = "warning",
   success = "success",
@@ -12,11 +13,10 @@ export type ColorLevels = {
   300: string;
   400: string;
   500: string;
-  600: string;
-  700: string;
-  800: string;
-  900: string;
-  1000: string;
+  600?: string;
+  700?: string;
+  800?: string;
+  900?: string;
 };
 
 export type ColorList = Record<ColorType, ColorLevels>;
