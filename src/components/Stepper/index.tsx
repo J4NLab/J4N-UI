@@ -28,20 +28,23 @@ const Stepper = ({ currentStep, numberOfSteps, sx, stepMap }: Props) => (
       <React.Fragment key={item.content}>
         <StepItem>
           {currentStep > index ? (
-            <StepCircle isImage={true}>
+            <StepCircle isPrev={true}>
               <img src={emptyCorrect} alt="" />
             </StepCircle>
           ) : (
             <>
-              <StepCircle isActive={currentStep === index} isImage={false}>
-                <Typography variant="h6" color="blue">
+              <StepCircle isActive={currentStep === index} isPrev={false}>
+                <Typography
+                  variant="h6"
+                  color={currentStep === index ? "primary.300" : "gray.600"}
+                >
                   {index + 1}
                 </Typography>
               </StepCircle>
             </>
           )}
           <StepTitle>
-            <Typography variant="h5" color="blue">
+            <Typography variant="h5" color="gray.900">
               {item.content}
             </Typography>
           </StepTitle>

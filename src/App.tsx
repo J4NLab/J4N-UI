@@ -16,6 +16,7 @@ import Checkbox from "./components/Checkbox";
 import Select from "./components/Select";
 import Tab from "./components/Tab";
 import TextField from "./components/TextField";
+import Stepper from "./components/Stepper";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +41,25 @@ function App() {
   const [optionValue, setOptionValue] = useState("");
   const [textValue, setTextValue] = useState("");
   const [textError, setTextError] = useState("");
+  const [currentStep, setCurrentStep] = useState(0);
+  const stepMap = [
+    {
+      title: "Step 1",
+      content: "選擇標的",
+    },
+    {
+      title: "Step 2",
+      content: "買入條件",
+    },
+    {
+      title: "Step 3",
+      content: "賣出條件",
+    },
+    {
+      title: "Step 4",
+      content: "進行回測",
+    },
+  ];
 
   const handleChange = (newValue: string) => {
     setTextValue(newValue);
@@ -152,6 +172,16 @@ function App() {
           width="40%"
           // disabled
           // clearable
+        />
+      </div>
+      <div style={{ width: "294px", margin: "100px" }}>
+        <Stepper
+          currentStep={currentStep}
+          numberOfSteps={stepMap.length}
+          // sx={{
+          //   stepLineWidth: "100px",
+          // }}
+          stepMap={stepMap}
         />
       </div>
     </JanUIProvider>

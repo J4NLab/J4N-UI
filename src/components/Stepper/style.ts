@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colorList } from "../../theme/color";
 
 export const StepperContainer = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ export const StepItem = styled.div`
   position: relative;
 `;
 
-export const StepCircle = styled.div<{ isActive?: boolean; isImage?: boolean }>`
+export const StepCircle = styled.div<{ isActive?: boolean; isPrev?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,12 +30,18 @@ export const StepCircle = styled.div<{ isActive?: boolean; isImage?: boolean }>`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: ${(props) => !props.isImage && "2px solid #3b82f6"};
-  background-color: ${(props) => (props.isActive ? "#3b82f6" : "transparent")};
+  border: ${(props) =>
+    // eslint-disable-next-line no-nested-ternary
+    !props.isPrev
+      ? props.isActive
+        ? `2px solid ${colorList.primary[300]}`
+        : `2px solid ${colorList.gray[600]}`
+      : "none"};
 `;
 
 export const StepLine = styled.div<{ isActive: boolean; customWidth?: string }>`
   height: 4px;
   width: ${(props) => props.customWidth || "100%"};
-  background-color: ${(props) => (props.isActive ? "#3b82f6" : "#d1d5db")};
+  background-color: ${(props) =>
+    props.isActive ? colorList.primary[300] : colorList.gray[600]};
 `;
