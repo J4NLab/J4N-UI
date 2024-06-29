@@ -14,6 +14,8 @@ import { colorList } from "./mocks/_colorList";
 import Checkbox from "./components/Checkbox";
 import Select from "./components/Select";
 import Tab from "./components/Tab";
+import TextField from "./components/TextField";
+import { FaBeer } from "react-icons/fa";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +38,17 @@ function App() {
   ];
   const [checked, setChecked] = useState(false);
   const [optionValue, setOptionValue] = useState("");
+  const [textValue, setTextValue] = useState('');
+  const [textError, setTextError] = useState('');
+
+  const handleChange = (newValue: string) => {
+    setTextValue(newValue);
+    if (newValue.length > 8) {
+      setTextError('超過 10 個字');
+    } else {
+      setTextError('');
+    }
+  };
 
   const onCheckboxChange = (checked: boolean) => {
     setChecked(!checked);
@@ -128,6 +141,19 @@ function App() {
           }
         ]}
       />
+      <div style={{ margin: "10px" }}>
+        <TextField
+          label="預設"
+          value={textValue}
+          onChange={handleChange}
+          error={textError}
+          placeholder='請輸入文字'
+          // icon={<FaBeer />}
+          width="40%"
+          // disabled
+          // clearable
+        />
+      </div>
     </JanUIProvider>
   );
 }
