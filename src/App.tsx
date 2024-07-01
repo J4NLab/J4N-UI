@@ -1,6 +1,5 @@
 import "./App.css";
 import { useState } from "react";
-import { FaBeer } from "react-icons/fa";
 import Breadcrumb from "./components/Breadcrumb";
 import Button from "./components/Button";
 import {
@@ -18,7 +17,6 @@ import SideBar from "./components/SideBar";
 import Tab from "./components/Tab";
 import TextField from "./components/TextField";
 import Stepper from "./components/Stepper";
-
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +41,7 @@ function App() {
   const [optionValue, setOptionValue] = useState("");
   const [textValue, setTextValue] = useState("");
   const [textError, setTextError] = useState("");
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep] = useState(0);
   const stepMap = [
     {
       title: "Step 1",
@@ -89,13 +87,11 @@ function App() {
     { key: 10, value: "Japan" },
   ];
 
-  const featureList: [
-    {
-      label: string;
-      value: string;
-      subFeatures: { label: string; value: string }[];
-    },
-  ] = [
+  const featureList: {
+    label: string;
+    value: string;
+    subFeatures: { label: string; value: string }[];
+  }[] = [
     {
       label: "我的策略",
       value: "UserStrategy",
@@ -143,10 +139,7 @@ function App() {
       ],
     },
   ];
-  const [optionValue, setOptionValue] = useState("");
   const [isOpenSideBar, setIsOpenSideBar] = useState(true);
-
-  console.log(optionValue, "optionValue");
 
   return (
     <JanUIProvider customColor={colorList}>

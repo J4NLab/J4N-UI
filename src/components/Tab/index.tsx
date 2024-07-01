@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
-import { TabContainer, TabButton, TabContent, NotificationBadge } from './style';
+import React, { useState } from "react";
+import {
+  TabContainer,
+  TabButton,
+  TabContent,
+  NotificationBadge,
+} from "./style";
 
-interface TabProps {
+type Props = {
   tabs: {
     label: string;
     content: React.ReactNode;
     icon?: React.ReactNode;
     notification?: number;
   }[];
-  shape?: 'capsule' | 'rectangle';
-  alignment?: 'left' | 'center' | 'right';
-}
+  shape?: "capsule" | "rectangle";
+  alignment?: "left" | "center" | "right";
+};
 
-const Tab = ({ tabs, shape = 'rectangle', alignment = 'left' }: TabProps) => {
+const Tab = ({ tabs, shape = "rectangle", alignment = "left" }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -27,9 +32,9 @@ const Tab = ({ tabs, shape = 'rectangle', alignment = 'left' }: TabProps) => {
   };
 
   const justifyContentMap = {
-    left: 'flex-start',
-    center: 'center',
-    right: 'flex-end'
+    left: "flex-start",
+    center: "center",
+    right: "flex-end",
   };
 
   return (
@@ -52,9 +57,7 @@ const Tab = ({ tabs, shape = 'rectangle', alignment = 'left' }: TabProps) => {
           </TabButton>
         ))}
       </TabContainer>
-      <TabContent isActive={!animating}>
-        {tabs[activeIndex].content}
-      </TabContent>
+      <TabContent isActive={!animating}>{tabs[activeIndex].content}</TabContent>
     </div>
   );
 };
