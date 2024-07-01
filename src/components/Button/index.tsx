@@ -2,7 +2,7 @@ import React from "react";
 
 import { colorFilter } from "../../utils/function";
 // import { _colorContext } from "../../utils/context";
-// import { colorList } from "../../theme/color";
+import { colorList } from "../../theme/color";
 
 import "./style.css";
 
@@ -27,7 +27,7 @@ const Button = ({
   endIcon,
   onClick,
 }: Props) => {
-  const containedStyle = variant === "contained" ? "bg-[#019CB0]" : "";
+  const containedStyle = variant === "contained" ? colorList.primary[400] : "";
   // const colorLists = _colorContext() ? (_colorContext() as any) : colorList;
 
   // 獲取滑鼠點擊位置

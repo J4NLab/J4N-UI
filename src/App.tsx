@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import { FaBeer } from "react-icons/fa";
 import Breadcrumb from "./components/Breadcrumb";
 import Button from "./components/Button";
 import {
@@ -14,6 +15,10 @@ import { colorList } from "./mocks/_colorList";
 import Checkbox from "./components/Checkbox";
 import Select from "./components/Select";
 import SideBar from "./components/SideBar";
+import Tab from "./components/Tab";
+import TextField from "./components/TextField";
+import Stepper from "./components/Stepper";
+
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,6 +40,38 @@ function App() {
     },
   ];
   const [checked, setChecked] = useState(false);
+  const [optionValue, setOptionValue] = useState("");
+  const [textValue, setTextValue] = useState("");
+  const [textError, setTextError] = useState("");
+  const [currentStep, setCurrentStep] = useState(0);
+  const stepMap = [
+    {
+      title: "Step 1",
+      content: "選擇標的",
+    },
+    {
+      title: "Step 2",
+      content: "買入條件",
+    },
+    {
+      title: "Step 3",
+      content: "賣出條件",
+    },
+    {
+      title: "Step 4",
+      content: "進行回測",
+    },
+  ];
+
+  const handleChange = (newValue: string) => {
+    setTextValue(newValue);
+    if (newValue.length > 8) {
+      setTextError("超過 10 個字");
+    } else {
+      setTextError("");
+    }
+  };
+
   const onCheckboxChange = (checked: boolean) => {
     setChecked(!checked);
   };
@@ -51,6 +88,7 @@ function App() {
     { key: 9, value: "India" },
     { key: 10, value: "Japan" },
   ];
+
   const featureList: [
     {
       label: string;
@@ -109,6 +147,7 @@ function App() {
   const [isOpenSideBar, setIsOpenSideBar] = useState(true);
 
   console.log(optionValue, "optionValue");
+
   return (
     <JanUIProvider customColor={colorList}>
       <Breadcrumb crumbs={crumb} />
@@ -188,6 +227,53 @@ function App() {
           </div>
         </div>
       </SideBar>
+      <Tab
+        alignment="left"
+        shape="rectangle"
+        tabs={[
+          {
+            label: "Tab Name 1",
+            content: <div>Content of Tab 1</div>,
+            // icon: <FaBeer />,
+            notification: 3,
+          },
+          {
+            label: "Tab Name 2",
+            content: <div>Content of Tab 2</div>,
+            // icon: <FaHome />,
+            notification: 0,
+          },
+          {
+            label: "Tab Name 3",
+            content: <div>Content of Tab 3</div>,
+            // icon: <FaBeer />,
+            notification: 1001,
+          },
+        ]}
+      />
+      <div style={{ margin: "10px" }}>
+        <TextField
+          label="預設"
+          value={textValue}
+          onChange={handleChange}
+          error={textError}
+          placeholder="請輸入文字"
+          // icon={<FaBeer />}
+          width="40%"
+          // disabled
+          // clearable
+        />
+      </div>
+      <div style={{ width: "294px", margin: "100px" }}>
+        <Stepper
+          currentStep={currentStep}
+          numberOfSteps={stepMap.length}
+          // sx={{
+          //   stepLineWidth: "100px",
+          // }}
+          stepMap={stepMap}
+        />
+      </div>
     </JanUIProvider>
   );
 }
